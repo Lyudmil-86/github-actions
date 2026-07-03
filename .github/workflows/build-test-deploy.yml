@@ -9,9 +9,23 @@ jobs:
     steps:
       - name: check out repository 
         uses: actions/checkout@v7
-      - name: use node.js
+      - name: setup node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
       - run: npm install
       - run: npm run build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out repository 
+        uses: actions/checkout@v7
+      - name: setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm install
+      - run: npm run test
