@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: check out repository
         uses: actions/checkout@v7
-      - run: echo "${cat hello_world.txt}"
+      - run: cat hello_world.txt
       
       
     
